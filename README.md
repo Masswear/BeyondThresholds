@@ -8,6 +8,7 @@ The code is released under a [GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.ht
 The aims of this project were to analyze the effect of different adherence estimation methods, sliding window parameters, and sample characteristics on the performance of a longitudinal clustering algorithm to
 
 a) identify temporal adherence patterns from EHD and
+
 b) classify individuals accurately into the identified clusters. 
 
 The objective of this study is to provide guidance for future longitudinal adherence studies using EHD.
