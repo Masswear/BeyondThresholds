@@ -1,17 +1,17 @@
 Beyond adherence thresholds: A simulation study of the optimal classification of longitudinal adherence trajectories from medication refill histories
 ==================================
 
-Samuel S. Allemann$^(1,2)$, Dan Dediu$^(3,4)$, Alexandra Lelia Dima$^1$
+Samuel S. Allemann<sup>1,2</sup>, Dan Dediu<sup>3,4</sup>, Alexandra Lelia Dima<sup>1</sup>
 
-$^1$Health Services and Performance Research (HESPER EA 7425), University Claude
+<sup>1</sup> Health Services and Performance Research (HESPER EA 7425), University Claude
   Bernard Lyon 1, Lyon, France
   
-$^2$Pharmaceutical Care Research Group, University of Basel, Basel, Switzerland
+<sup>2</sup> Pharmaceutical Care Research Group, University of Basel, Basel, Switzerland
 
-$^3$Collegium de Lyon, Institut d'Ã‰tudes AvancÃ©es, 24 rue Baldassini, 69007 Lyon,
+<sup>3</sup> Collegium de Lyon, Institut d'Ã‰tudes AvancÃ©es, 24 rue Baldassini, 69007 Lyon,
   France
   
-$^4$Language and Genetics Department, Max Planck Institute for Psycholinguistics,
+<sup>4</sup> Language and Genetics Department, Max Planck Institute for Psycholinguistics,
   Wundtlaan 1, 6525 XD, Nijmegen, The Netherlands
 
 Abstract
