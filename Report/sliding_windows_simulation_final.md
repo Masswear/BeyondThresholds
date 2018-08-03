@@ -1,21 +1,18 @@
----
-title: 'Beyond adherence thresholds: A simulation study of the optimal classification
-  of longitudinal adherence trajectories from medication refill histories'
-author:
-- Samuel S. Allemann$^(1,2)$
-- Dan Dediu$^(3,4)$
-- Alexandra Lelia Dima$^1$
-date: "03.08.2018"
-institute:
-- $^1$Health Services and Performance Research (HESPER EA 7425), University Claude
+Beyond adherence thresholds: A simulation study of the optimal classification of longitudinal adherence trajectories from medication refill histories
+==================================
+
+Samuel S. Allemann$^(1,2)$, Dan Dediu$^(3,4)$, Alexandra Lelia Dima$^1$
+
+$^1$Health Services and Performance Research (HESPER EA 7425), University Claude
   Bernard Lyon 1, Lyon, France
-- $^2$Pharmaceutical Care Research Group, University of Basel, Basel, Switzerland
-- $^3$Collegium de Lyon, Institut d'Ã‰tudes AvancÃ©es, 24 rue Baldassini, 69007 Lyon,
+  
+$^2$Pharmaceutical Care Research Group, University of Basel, Basel, Switzerland
+
+$^3$Collegium de Lyon, Institut d'Ã‰tudes AvancÃ©es, 24 rue Baldassini, 69007 Lyon,
   France
-- $^4$Language and Genetics Department, Max Planck Institute for Psycholinguistics,
+  
+$^4$Language and Genetics Department, Max Planck Institute for Psycholinguistics,
   Wundtlaan 1, 6525 XD, Nijmegen, The Netherlands
-urlcolor: blue
----
 
 Abstract
 ------------
@@ -426,7 +423,7 @@ understand performance differences for each group, we created confusion
 matrices for each CMA estimate to visualize the classification accuracy.
 
 Results
-=======
+------------
 
 We simulated 50 data sets per sample size (350 in total) to assess
 impact of sample size on performance. Sample size did not have a
@@ -438,8 +435,7 @@ window sizes, and 10 degrees of overlap per window size) for each data
 set. Mean refill duration was 60.58 days (IQR: 53.83 - 67.62) with a
 mean interval of 92.4 days (IQR: 84.10 - 103.07) between refill events.
 
-Performance analysis
---------------------
+### Performance analysis
 
 Cluster analysis with LCMA2 outperformed every other method irrespective
 of sliding window parameters in overall performance, correct
@@ -465,7 +461,7 @@ estimates
 | LCMA1 : LCMA2-thr     |  0.0866006|   0.0433183|  0.1298829|  0.0000023|
 | LCMA2-thr : LCMA1-thr |  0.0144546|  -0.0288277|  0.0577369|  0.8246114|
 
-### Impact of window size and overlap on overall performance
+#### Impact of window size and overlap on overall performance
 
 Window size and overlap affected overall performance with all CMA
 estimates, albeit in different ways (Figure 4 and top row of Figure 5).
@@ -520,7 +516,7 @@ performance of simple k-means clustering on the average CMA9 over the
 whole observation
 period.](Figures/fig_5-1.png)
 
-### Prediction accuracy per group
+#### Prediction accuracy per group
 
 Prediction accuracy varied not only between CMA estimates and sliding
 windows parameters, but also between the 6 pre-specified groups (Figure
@@ -556,8 +552,7 @@ estimate (individual panels identified by their title) for 100
 simulations of 1000
 individuals.](Figures/fig_7-1.png)
 
-Choice of optimal parameters
-----------------------------
+### Choice of optimal parameters
 
 In our simulation study, optimal sliding window parameters varied
 between CMA estimates (Table 2). The continuous estimates LCMA1 and
@@ -589,10 +584,9 @@ groups, CI: confidence interval
 | **Overall**                | **72%**         | **84%**         | **82%**         | **87**         | **72%**         |
 
 Discussion
-==========
-
-Overview
 --------
+
+### Overview
 
 Classifying patients based on their long-term medication use behaviors
 could prove useful in numerous clinical settings, to understand reasons
@@ -664,8 +658,7 @@ days), an observation period of 2 years results in trajectories of
 length 8, which should not take more than 7 hours to classify with kml
 on a typical machine for sample sizes of up to 40,000.
 
-Advantages
-----------
+### Advantages
 
 Our methods for estimating longitudinal adherence based on EHD and the
 performance analysis in a simulation study have several advantages.
@@ -702,8 +695,7 @@ parameters. To facilitate such studies, researchers may refer to the
 source code released under a GNU General Public License v3 on github
 [github.com/Masswear/SlidingWindows](github.com/Masswear/SlidingWindows).
 
-Limitations
------------
+### Limitations
 
 We report several limitations relating to cluster analysis in general
 and to our simulation study in particular.
@@ -766,8 +758,7 @@ advantage of LCMA2 over a wide range of sliding windows parameters, we
 are confident that our results can be generalized to many other
 real-world settings.
 
-Outlook
--------
+### Outlook
 
 To correlate temporal adherence patterns with other outcomes, such as
 time of hospitalization, exacerbations or illness progression, or
@@ -788,7 +779,7 @@ longitudinal adherence research in the future based on our own research
 and user feedback.
 
 Conclusion
-==========
+--------
 
 The choice of CMA estimate and sliding window parameters has a major
 impact on the performance of a clustering algorithm to identify distinct
@@ -800,7 +791,7 @@ accurate and robust identification of different adherence patterns from
 electronic healthcare data.
 
 Author Contributions
-====================
+--------
 
 SA, DD and AD contributed conception and design of the study; SA and DD
 programmed the simulations; SA performed the analyses and wrote the
@@ -809,7 +800,7 @@ manuscript. All authors contributed to manuscript revision, read and
 approved the submitted version.
 
 Acknowledgement
-===============
+--------
 
 SA received funding from the Swiss National Science Foundation for an
 “Early Postdoc.Mobility” fellowship \[grant number P2BSP3\_178648\]. DD
@@ -819,12 +810,12 @@ Fellowship 2017-2018. AD was supported by a European Union’s Horizon
 number 706028\].
 
 Conflict of Interest
-====================
+--------
 
 The authors report no conflict of interest.
 
 References
-==========
+--------
 
 Bijlsma, M. J., Janssen, F., and Hak, E. (2016). Estimating time-varying
 drug adherence using electronic records: Extending the proportion of
