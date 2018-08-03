@@ -21,7 +21,7 @@ The report is the pre-print version of the published version.
 The **`R` skript** (in the `./Code/` directory) contains the code used for the simulation study, including the custom functions to simulate refill histories.
 If you would like to perform a similar simulation study, you may use and adapt the provided skript.
 
-If you use (parts of) the `R` scripts, please cite this work and include links to this repository: (https://github.com/Masswear/SlidingWindows 
+If you use (parts of) the `R` scripts, please cite this work and include links to this repository: (https://github.com/Masswear/BeyondThresholds 
 
 ## Feedback
 
