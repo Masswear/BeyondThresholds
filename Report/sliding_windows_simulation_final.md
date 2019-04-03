@@ -8,7 +8,7 @@ Samuel S. Allemann<sup>1,2</sup>, Dan Dediu<sup>3,4</sup>, Alexandra Lelia Dima<
   
 <sup>2</sup> Pharmaceutical Care Research Group, University of Basel, Basel, Switzerland
 
-<sup>3</sup> Collegium de Lyon, Institut d'Ã‰tudes AvancÃ©es, 24 rue Baldassini, 69007 Lyon,
+<sup>3</sup> Collegium de Lyon, Institut d'Études Avancées, 24 rue Baldassini, 69007 Lyon,
   France
   
 <sup>4</sup> Language and Genetics Department, Max Planck Institute for Psycholinguistics,
@@ -17,10 +17,10 @@ Samuel S. Allemann<sup>1,2</sup>, Dan Dediu<sup>3,4</sup>, Alexandra Lelia Dima<
 Abstract
 ------------
 
-**Background:** The description of adherence based on medication refill histories relies on the estimation of continuous medication availability (CMA) during an observation period. Thresholds to distinguish adherence from non-adherence typically refer to an aggregated value across the entire observation period, disregarding differences in adherence over time that may have an impact on clinical outcomes. Sliding windows to divide the observation period into smaller portions, estimating adherence for these increments, and classify individuals with similar trajectories into clusters can retain this temporal information. Optimal methods to estimate longitudinal CMA (LCMA) and ideal parametrization of sliding windows to identify underlying patterns have not yet been established. This simulation study aimed to provide guidance for future studies by analyzing the effect of different LCMA estimates, sliding window parameters, and sample characteristics on the performance of a longitudinal clustering algorithm.
-**Methods:** We generated samples of 250-25,000 individuals with one of 6 longitudinal refill patterns over a 2-year period. We used two LCMA estimates (LCMA1 and LCMA2) and their dichotomized variants (with a threshold of 80%) to create adherence trajectories. LCMA1 assumes full adherence until the supply ends while LCMA2 assumes constant adherence between refills. We assessed scenarios with different LCMA estimates and sliding window parameters for 350 independent samples. Individual trajectories were clustered with kml, an implementation of k-means for longitudinal data in R. We compared performance between the 4 LCMA estimates using the adjusted Rand Index (cARI).
-**Results:** Cluster analysis with LCMA2 outperformed other estimates, irrespective of sliding window parameters, in overall performance, correct identification of groups, and classification accuracy. Pairwise comparison between LCMA estimates showed a relative cARI-advantage of 0.12 - 0.22 (p < 0.001) for LCMA2. Sample size did not affect overall performance.
-**Conclusions:** The choice of LCMA estimate and sliding window parameters has a major impact on the performance of a clustering algorithm to identify distinct longitudinal adherence trajectories. We recommend a) assuming constant adherence between refills, b) avoiding dichotomization based on a threshold, and c) exploring optimal sliding windows parameters in simulation studies or selecting shorter non-overlapping windows for the identification of different adherence patterns from medication refill data.
+**Background:** The description of adherence based on medication refill histories relies on the estimation of continuous medication availability (CMA) during an observation period. Thresholds to distinguish adherence from non-adherence typically refer to an aggregated value across the entire observation period, disregarding differences in adherence over time. Sliding windows to divide the observation period into smaller portions, estimating adherence for these increments, and classify individuals with similar trajectories into clusters can retain this temporal information. Optimal methods to estimate adherence trajectories to identify underlying patterns have not yet been established. This simulation study aimed to provide guidance for future studies by analyzing the effect of different longitudinal adherence estimates, sliding window parameters, and sample characteristics on the performance of a longitudinal clustering algorithm.
+**Methods:** We generated samples of 250-25,000 individuals with one of 6 longitudinal refill patterns over a 2-year period. We used two longitudinal CMA estimates (LCMA1 and LCMA2) and their dichotomized variants (with a threshold of 80%) to create adherence trajectories. LCMA1 assumes full adherence until the supply ends while LCMA2 assumes constant adherence between refills. We assessed scenarios with different LCMA estimates and sliding window parameters for 350 independent samples. Individual trajectories were clustered with kml, an implementation of k-means for longitudinal data in R. We compared performance between the 4 LCMA estimates using the adjusted Rand Index (cARI).
+**Results:** Cluster analysis with LCMA2 outperformed other estimates in overall performance, correct identification of groups, and classification accuracy, irrespective of sliding window parameters. Pairwise comparison between LCMA estimates showed a relative cARI-advantage of 0.12 - 0.22 (p < 0.001) for LCMA2. Sample size did not affect overall performance.
+**Conclusions:** The choice of LCMA estimate and sliding window parameters has a major impact on the performance of a clustering algorithm to identify distinct longitudinal adherence trajectories. We recommend a) to assume constant adherence between refills, b) to avoid dichotomization based on a threshold, and c) to explore optimal sliding windows parameters in simulation studies or selecting shorter non-overlapping windows for the identification of different adherence patterns from medication refill data.
 
 Introduction
 ------------
@@ -89,7 +89,7 @@ The challenge with this approach is to identify clusters that capture
 meaningful differences between individuals in terms of their temporal
 adherence patterns, and classify individuals accurately based on the
 available data. With real-world data, neither the “real” clusters nor
-the allocation of individuals to those clusters is known. Simulation
+the allocation of individuals to those clusters are known. Simulation
 studies offer the possibility to assess the performance of a variety of
 methods and parameters in relation to a known state (Burton et al.,
 2006). In adherence research, simulation studies have been used to
@@ -400,14 +400,16 @@ Although the algorithm in our simulation study always partitioned
 individuals into 6 clusters with random labels from A-F, the predicted
 clusters did not necessarily resemble the pre-specified groups 1 to 6
 (Figure 3). To compare performance between scenarios, we relabelled each
-cluster with the number of the best matching group. For example, the
-clusters A-F for LCMA2 in Figure 3 (bottom left panel) were relabelled
-to groups 3, 4, 5, 2, 1 and 6, respectively. If the predicted clusters
-did not correspond to the 6 pre-specified groups, the final number of
-predicted groups was smaller than 6. For example, if the majority of the
-individuals in both of the predicted clusters A and B belonged to group
-1, both clusters A and B received the label “1”, reducing the number of
-identified groups to 5.
+cluster with the number of the best matching group. We defined the best 
+matching group as the group with the highest representation in a given 
+cluster. 
+For example, the clusters A-F for LCMA2 in Figure 3 (bottom left panel) 
+were relabelled to groups 3, 4, 5, 2, 1 and 6, respectively. If the 
+predicted clustersdid not correspond to the 6 pre-specified groups, the 
+final number of predicted groups was smaller than 6. For example, if the
+majority of the individuals in both of the predicted clusters A and B 
+belonged to group 1, both clusters A and B received the label “1”, 
+reducing the number of identified groups to 5.
 
 ![**Figure 3:** Trajectory clusters generated by *kml* for one sample of
 1000 individuals. Each of the four panels shows the result of using
@@ -434,7 +436,7 @@ correspond to groups
 To assess classification accuracy, we computed the adjusted Rand Index
 (ARI), which is a commonly used measure for the similarity between two
 sets of clusters (Hubert and Arabie, 1985). The ARI takes a value
-between 0 (not better than chance) and 1 (perfect agreement with
+between 0 (not better than random allocation) and 1 (perfect agreement with
 pre-specified group allocation). Because the number of correctly
 identified groups directly affects classification accuracy, we
 calculated two different ARIs: One restricted to the subset of the
@@ -453,7 +455,7 @@ Results
 
 We simulated 50 data sets per sample size (350 in total) to assess
 impact of sample size on performance. Sample size did not have a
-substantial impact on overall clustering accuracy (Spearman’s Rho =
+substantial impact on overall classification accuracy (Spearman’s Rho =
 0.04, p-value = 0.5), and increased computational costs considerably.
 For the final analysis, we simulated 100 data sets with 1000 individuals
 and investigated 1040 different scenarios (4 adherence estimates, 26
@@ -496,10 +498,9 @@ cARI values for smaller window sizes and overlaps. LCMA1 showed the
 worst performance for smaller window sizes up to 100 days and reached
 peak cARI values with window sizes of 150-200 days and large overlaps.
 Performance of both dichotomized estimates was generally better with
-short window sizes and decreased rapidly with larger window sizes. With
-overlaps of 50% and more, LCMA1-threshold surpassed performance of
-LCMA2-threshold at smaller window sizes. Although performance of LCMA2
-also decreased with larger window sizes, it remained relatively stable
+short window sizes and decreased rapidly with larger window sizes. 
+Although performance of LCMA2 also decreased with larger window sizes, 
+it remained relatively stable
 up to around 360 days (half of observation period). Classification with
 the dichotomized estimates required at least 3 windows, which was due to
 the requirement to generate 6 different clusters and the limited options
@@ -562,18 +563,18 @@ performance of simple k-means clustering on the average CMA9 over the
 whole observation
 period.
 
-#### Prediction accuracy per group
+#### Classification accuracy per group
 
-Prediction accuracy varied not only between CMA estimates and sliding
+Classification accuracy varied not only between CMA estimates and sliding
 windows parameters, but also between the 6 pre-specified groups (Figure
-6). The reference group 1 (consistent adherence) was correctly
+6). The reference group 1 (*consistent adherence*) was correctly
 identified with all methods, including CMA9. Reference group 6
-(non-persistence) was identified with LCMA1 and LCMA2 (and CMA9), but
+(*non-persistence*) was identified with LCMA1 and LCMA2 (and CMA9), but
 not with the dichotomized variants. For this group, LCMA2-threshold
 showed the weakest accuracy with less than 20% of non-persistence
-correctly identified. As expected, group 2 (erratic adherence) was the
+correctly identified. As expected, group 2 (*erratic adherence*) was the
 most problematic with an accuracy of below 40% for all estimates. For
-groups 3-5, LCMA2 reached a prediction accuracy of around 90%, unrivaled
+groups 3-5, LCMA2 reached a classification accuracy of around 90%, unrivaled
 by any other estimate. In comparison, clustering on with CMA9 reached an
 accuracy of 60-70% for these groups.
 
@@ -624,11 +625,11 @@ days, respectively. The dichotomized versions required shorter windows
 of 60 days. Both LCMA2 estimates performed better with non-overlapping
 windows. In contrast, LCMA1 estimates required larger overlaps of 80%
 for optimal performance. With LCMA2 and non-overlapping windows of 90
-days, kml correctly identified group membership for an average 85% of
+days, kml correctly identified group membership for an average 84.4% of
 individuals in 100 independent simulations.
 
 **Table 2:** Optimal parameters and performance per CMA method, based on 100
-simulations of 1000 individuals. cARI: adjusted Rand Index for all
+simulations of 1000 individuals. A classification accuracy of 100% indicates that the clustering algorithm correctly identified all individuals of a pre-allocated group. cARI: adjusted Rand Index for all
 groups, CI: confidence interval
 
 |                       | CMA9        | LCMA1       | LCMA1-thr   | LCMA2       | LCMA2-thr   |
@@ -674,20 +675,9 @@ to identify and explore different time-varying adherence patterns and to
 visualize individual adherence trajectories to assist with clinical
 decisions.
 
-In contrast to LCMA1 and most other CMA methods, LCMA2 does not assume
-100% use until the supply is exhausted. In the case of longitudinal
-adherence analysis, this assumption has been questioned before (Bijlsma
-et al., 2016). While it may have only a minor impact on average
-adherence estimates over long periods, it strongly affects estimates for
-periods shorter than the interval between two refills, as it is the case
-with sliding window analyses. Our simulation study shows that
-performance with LCMA1 is poor for window sizes below 90 days, which
-coincides with the average interval between dispensing events in our
-simulated data sets. However, performance remained lower compared with
-LCMA2 even for larger window sizes, although larger overlaps improved
-performance noticeably. In contrast, window sizes up to one year (half
-of the observation period) and overlap had only a minor impact on
-performance with LCMA2.
+First, we calculated LCMA2 for intervals between two refills instead of 
+the three dispensing events proposed by Bijlsma et al. (Bijlsma et al., 2016). 
+This ensures the calculation of an adherence estimate even if there are less than three dispensing events (e.g. some individuals in group 6 of our simulation study). While stabilizing the adherence estimate and reducing variance, the Bijlsma et al. approach may mask temporal variation, e.g. if the interval between the first and second dispensing event is a lot longer or shorter than between the second and third. With larger window sizes, we achieved a similar form of stabilizing adherence estimates over multiple dispensing events. Nevertheless, with our method of calculating LCMA2 between two dispensing events, time-varying adherence patterns were reliably identified with short window sizes covering not more than the interval between two dispensing events. On the other hand, short-term temporal variation can also mask true underlying adherence patterns, e.g. with early refills resulting in overlapping supplies. If this is a concern, we recommend to carry-over oversupplies before adherence estimation. 
 
 Performance with the dichotomized versions of both LCMA was lower than
 with the continuous estimates, which illustrates the loss of information
@@ -812,14 +802,7 @@ between refills, but this should not serve as a recommendation without
 further verification. Nevertheless, overall performance with LCMA2 was
 robust over a wide range of parameters.
 
-Finally, the results of our simulation study are difficult to validate
-with real data, because cluster analysis is always exploratory. However,
-the simulated refill patterns and resulting adherence trajectories have
-been observed previously in real data sets (Franklin et al., 2013;
-Hargrove et al., 2017). Because of the clear and highly significant
-advantage of LCMA2 over a wide range of sliding windows parameters, we
-are confident that our results can be generalized to many other
-real-world settings.
+Finally, the results of our simulation study are difficult to validate with real data, because cluster analysis is always exploratory. We strived to simulate realistic refill patterns for medications intended for chronic use. At the same time, we needed patterns that a) were distinct enough to allow partitioning into groups and b) had similar average adherence (otherwise, one could just group by average adherence, which would not be useful to answer the study question). Hence, the parameters were a trade-off between internal and external validity. However, the simulated refill patterns and resulting adherence trajectories have been observed previously in real data sets (Franklin et al., 2013, 2016; Hargrove et al., 2017). Because of the clear and highly significant advantage of LCMA2 over a wide range of sliding windows parameters, we are confident that our results can be generalized to many other real-world settings.
 
 ### Outlook
 
@@ -862,7 +845,7 @@ first draft of the manuscript; AD and DD wrote sections of the
 manuscript. All authors contributed to manuscript revision, read and
 approved the submitted version.
 
-Acknowledgement
+Funding
 --------
 
 SA received funding from the Swiss National Science Foundation for an
