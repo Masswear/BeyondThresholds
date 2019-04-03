@@ -30,8 +30,8 @@ library(clues)
 library(kml)
 library(evobiR)
 library(foreach)
-library(doSNOW)
-#library(doParallel)
+library(doSNOW) # parallell processing with Windows-based systems
+#library(doParallel) # parallel processing with UNIX-based systems
 
 source("functions.R")
 
