@@ -184,12 +184,12 @@ different longitudinal refill patterns (Figure 1):
 
 -   Group 1: “High adherence” with an average CMA9 of around 95%.
     Individuals in this group continuously refilled with a normally
-    distributed delay (mean = 5% of the previous refill duration,
-    standard deviation = 0.1, lower limit = -10%, upper limit = 20%).
+    distributed delay (mean = 0.05,
+    standard deviation = 0.1, lower limit = -0.1%, upper limit = 0.2%).
 -   Group 2: “Erratic adherence” with a median CMA9 between 50% and 90%.
     Individuals in this group continuously refilled with a normally
-    distributed delay (mean = 0% of the previous refill duration,
-    standard deviation = 1, lower limit = -20%, upper limit = 120%).
+    distributed delay (mean = 0, standard deviation = 1, lower limit = -0.2,
+    upper limit = 1.2).
 -   Group 3: “Gradual decline” with increasingly delayed refills. Delays
     increased linearly for each refill by a factor of 2/(total number of
     refills) with added noise (normal distribution with mean = 1,
@@ -204,8 +204,8 @@ different longitudinal refill patterns (Figure 1):
     over time with added noise identical to Group 3.
 -   Group 6: “Non-persistence” with one or two refills after the initial
     fill and no refills afterwards. Delays were normally distributed
-    (mean = 30% of the previous refill duration, standard deviation = 1,
-    lower limit = -20%, upper limit = 80%).
+    (mean = 0.3 of the previous refill duration, standard deviation = 1,
+    lower limit = -0.2, upper limit = 0.8).
 
 The parameters to generate the refill patterns for each group were tuned
 to achieve unique trajectories with distinct shapes over time similar to
@@ -839,11 +839,11 @@ electronic healthcare data.
 Author Contributions
 --------
 
-SA, DD and AD contributed conception and design of the study; SA and DD
-programmed the simulations; SA performed the analyses and wrote the
-first draft of the manuscript; AD and DD wrote sections of the
-manuscript. All authors contributed to manuscript revision, read and
-approved the submitted version.
+SA and DD programmed the simulations. SA performed the Q10
+analyses and wrote the first draft of the manuscript. AD and
+DD wrote sections of the manuscript. All authors contributed
+conception and design of the study, manuscript revision, read
+and approved the submitted version.
 
 Funding
 --------
