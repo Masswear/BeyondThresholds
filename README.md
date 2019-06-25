@@ -18,14 +18,14 @@ The objective of this study is to provide guidance for future longitudinal adher
 The **accompanying report** (in the `./Report/` directory) describes in detail the simulation study and its results.
 The report is the pre-print version of the published version.
 
-The **`R` skript** (in the `./Code/` directory) contains the code used for the simulation study, including the custom functions to simulate refill histories.
-If you would like to perform a similar simulation study, you may use and adapt the provided skript.
+The **`R` script** (in the `./Code/` directory) contains the code used for the simulation study, including the custom functions to simulate refill histories.
+If you would like to perform a similar simulation study, you may use and adapt the provided script.
 
-If you use (parts of) the `R` scripts, please cite this work and include links to this repository: (https://github.com/Masswear/BeyondThresholds 
+If you use (parts of) the `R` scripts, please cite this work and include links to this repository: (https://github.com/Masswear/BeyondThresholds) 
 
 ## Feedback
 
-We love your feedback! Although the `R` code is fairly well commented and has been tested on various systems, it has not been created with an application beyond this work in mind. 
+We love your feedback! Although we did our best to comment the `R` code and test it on various systems, it has not been created with an application beyond this work in mind. 
 Any comments, suggestions or bug reports are welcome, either through GitHub's own issue reporting options or by e-mail to <s.allemann@unibas.ch>. 
 
 ## Thank you
